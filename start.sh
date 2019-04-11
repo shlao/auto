@@ -18,5 +18,5 @@ script="${path##*/}"
 
 if [[ -f "$script" ]]
 then
-	bash ${script}
+	bash ${script} "$1"
 fi
