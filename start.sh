@@ -8,5 +8,15 @@ then
 fi
 
 github_token="$1"
-github_file="https://api.github.com/repos/$2/contents/$3"
+path=$3
+github_file="https://api.github.com/repos/$2/contents/${path}"
+
+# https://stackoverflow.com/questions/18126559/how-can-i-download-a-single-raw-file-from-a-private-github-repo-using-the-comman
 curl -H "Authorization: token ${github_token}" -H 'Accept: application/vnd.github.v3.raw' -O -L "$github_file"
+
+script=${path##*/}
+
+if [[ -f "$script" ]]
+then
+	bash ${script}
+fi
