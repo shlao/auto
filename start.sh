@@ -2,8 +2,8 @@
 
 if [[ $# -ne 3 ]]
 then
-	echo "invalid argument please pass three arguments: "
-	echo "$0 github_token owner/repo filepath"
+    echo "invalid argument please pass three arguments: "
+    echo "$0 github_token owner/repo filepath"
     exit
 fi
 
@@ -18,5 +18,5 @@ script="${path##*/}"
 
 if [[ -f "$script" ]]
 then
-	bash ${script} "$1"
+    bash ${script} "$1"
 fi
